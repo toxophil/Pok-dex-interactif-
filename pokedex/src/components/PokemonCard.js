@@ -35,6 +35,22 @@ function PokemonCard({ pokemon }) {
         />
         <h3>{pokemon.Name}</h3>
         <p>Type: {pokemon.Type1} {pokemon.Type2 && `/ ${pokemon.Type2}`}</p>
+        <div className="pokemon-types">
+  {icons[pokemon.Type1] && (
+    <div
+      className="type-icon"
+      style={{ "--type-color": `#${icons[pokemon.Type1]?.color || "ccc"}` }}
+      dangerouslySetInnerHTML={{ __html: icons[pokemon.Type1].svg }}
+    />
+  )}
+  {pokemon.Type2 && icons[pokemon.Type2] && (
+    <div
+      className="type-icon"
+      style={{ "--type-color": `#${icons[pokemon.Type2]?.color || "ccc"}` }}
+      dangerouslySetInnerHTML={{ __html: icons[pokemon.Type2].svg }}
+    />
+  )}
+</div>
       </button>
 
       {/* Passer le dégradé à la modale */}
