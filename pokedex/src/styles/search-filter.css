@@ -1,0 +1,10 @@
+/* 🔍 Barre de recherche et filtre */
+input[type="text"],
+select {
+    padding: 10px;
+    font-size: 1rem;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}

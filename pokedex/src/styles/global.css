@@ -1,0 +1,15 @@
+/* 🌍 Styles globaux */
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-top: 20px;
+    color: #333;
+    text-transform: uppercase;
+}

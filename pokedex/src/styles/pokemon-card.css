@@ -1,0 +1,31 @@
+/* 🎴 Carte Pokémon */
+.pokemon-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 200px;
+    margin: auto;
+}
+
+/* 🖼️ Image */
+.pokemon-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-top: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 🌟 Effet au survol */
+.pokemon-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 4px 20px rgba(255, 215, 0, 0.8);
+}
+
+.pokemon-card:hover img {
+    transform: rotate(5deg) scale(1.1);
+}
