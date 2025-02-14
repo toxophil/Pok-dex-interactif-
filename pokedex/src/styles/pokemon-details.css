@@ -42,11 +42,29 @@
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(8px);
   }
-  .type-icon-modal svg {
-    max-width: 30px;
-    max-height: 30px;
+
+  /* Conteneur des icônes des types */
+.pokemon-types-modal {
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    gap: 10px; /* Espacement entre les icônes */
+    margin-top: 8px;
+}
+/* Styles des icônes */
+.type-icon-modal {
     display: flex;
     justify-content: center;
     align-items: center;
-    fill: var(--type-color); /* Applique la couleur dynamique */}
-
+    width: 80px;
+    height: 80px;
+}  
+/* Correction pour éviter l'alignement à gauche */
+.type-icon-modal svg {
+    width: 80px;
+    height: 80px;
+    max-width: 80px;
+    max-height: 80px;
+    display: block; /* Évite que les SVG aient des marges indésirables */
+    margin: auto; /* Centre l'icône dans son conteneur */
+}
