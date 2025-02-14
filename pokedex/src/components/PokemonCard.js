@@ -4,8 +4,8 @@ import icons from "../data/icons.json";
 
 function PokemonCard({ pokemon }) {
   const [showDetails, setShowDetails] = useState(false);
-
   const typeColor = icons[pokemon.Type1]?.color || "#ccc";
+  const imageUrl = `/images/${pokemon.Name.toLowerCase()}.png`;
 
   return (
     <div
@@ -14,15 +14,10 @@ function PokemonCard({ pokemon }) {
       onClick={() => setShowDetails(true)}
     >
       <h3>{pokemon.Name}</h3>
-      <img src={`/images/${pokemon.Name}.png`} alt={pokemon.Name} />
+      <img src={imageUrl} alt={pokemon.Name} onError={(e) => e.target.src = "/images/default.png"} />
       <p>Type: {pokemon.Type1} {pokemon.Type2 && `/ ${pokemon.Type2}`}</p>
 
-      {showDetails && (
-        <PokemonDetails
-          pokemon={pokemon}
-          onClose={() => setShowDetails(false)}
-        />
-      )}
+      {showDetails && <PokemonDetails pokemon={pokemon} onClose={() => setShowDetails(false)} />}
     </div>
   );
 }
