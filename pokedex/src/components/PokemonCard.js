@@ -17,7 +17,12 @@ function PokemonCard({ pokemon }) {
       <img src={imageUrl} alt={pokemon.Name} onError={(e) => e.target.src = "/images/default.png"} />
       <p>Type: {pokemon.Type1} {pokemon.Type2 && `/ ${pokemon.Type2}`}</p>
 
-      {showDetails && <PokemonDetails pokemon={pokemon} onClose={() => setShowDetails(false)} />}
+      {showDetails && (
+        <PokemonDetails
+          pokemon={pokemon}
+          onClose={() => setShowDetails(false)} // ✅ Corrige la fermeture
+        />
+      )}
     </div>
   );
 }
