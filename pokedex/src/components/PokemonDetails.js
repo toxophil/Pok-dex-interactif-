@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function PokemonDetails({ pokemon, onClose }) {
+  // Ajoute une classe au body pour désactiver l'interaction en arrière-plan
+  useEffect(() => {
+    document.body.classList.add("modal-open");
+    return () => {
+      document.body.classList.remove("modal-open");
+    };
+  }, []);
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="pokemon-details" onClick={(e) => e.stopPropagation()}>
