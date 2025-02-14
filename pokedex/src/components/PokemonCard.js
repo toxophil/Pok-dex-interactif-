@@ -5,6 +5,7 @@ import icons from "../data/icons.json";
 function PokemonCard({ pokemon }) {
   const [showDetails, setShowDetails] = useState(false);
 
+  // Récupération des couleurs associées aux types du Pokémon
   const color1 = `#${icons[pokemon.Type1]?.color || "ccc"}`;
   const color2 = pokemon.Type2 ? `#${icons[pokemon.Type2]?.color || "ccc"}` : color1;
 
@@ -15,53 +16,36 @@ function PokemonCard({ pokemon }) {
     borderRadius: "10px",
     textAlign: "center",
     cursor: "pointer",
+    border: "none",
+    outline: "none",
+    width: "100%",
   };
 
-  const imageUrl = `/images/${pokemon.Name.toLowerCase()}.png`;
-
   return (
-    <div
-      className="pokemon-card"
-      style={backgroundStyle}
-      onClick={() => setShowDetails(true)}
-    >
-      <h3>{pokemon.Name}</h3>
-      <img
-        src={imageUrl}
-        alt={pokemon.Name}
-        onError={(e) => (e.target.src = "/images/default.png")}
-        style={{ width: "80px", height: "80px", objectFit: "contain" }}
-      />
+    <>
+      <button
+        className="pokemon-card"
+        style={backgroundStyle}
+        onClick={() => setShowDetails(true)}
+      >
+        <img
+          src={`/images/${pokemon.Name.toLowerCase()}.png`}
+          alt={pokemon.Name}
+          style={{ width: "80px", height: "80px", objectFit: "contain" }}
+        />
+        <h3>{pokemon.Name}</h3>
+        <p>Type: {pokemon.Type1} {pokemon.Type2 && `/ ${pokemon.Type2}`}</p>
+      </button>
 
-      {/* Ajout des icônes des types */}
-      <div className="pokemon-types">
-        {icons[pokemon.Type1] && (
-          <div
-            className="type-icon"
-            dangerouslySetInnerHTML={{ __html: icons[pokemon.Type1].svg }}
-          />
-        )}
-        {pokemon.Type2 && icons[pokemon.Type2] && (
-          <div
-            className="type-icon"
-            dangerouslySetInnerHTML={{ __html: icons[pokemon.Type2].svg }}
-          />
-        )}
-      </div>
-
-      <p>Type: {pokemon.Type1} {pokemon.Type2 && `/ ${pokemon.Type2}`}</p>
-
-      {/* Modale des détails du Pokémon */}
+      {/* Passer le dégradé à la modale */}
       {showDetails && (
         <PokemonDetails 
           pokemon={pokemon} 
-          onClose={() => {
-            console.log("✅ Fermeture demandée depuis PokemonCard !");
-            setTimeout(() => setShowDetails(false), 0);
-          }} 
+          onClose={() => setShowDetails(false)}
+          backgroundStyle={backgroundStyle} 
         />
       )}
-    </div>
+    </>
   );
 }
 
