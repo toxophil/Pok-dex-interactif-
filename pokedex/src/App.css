@@ -1,43 +1,63 @@
- 
-  .pokedex {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-    padding: 20px;
-  }
-  
-  .pokemon-card {
-    border-radius: 10px;
-    padding: 10px;
-    cursor: pointer;
-    text-align: center;
-    transition: transform 0.2s;
-  }
-  
-  .pokemon-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .pokemon-details {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  
-
-  .pokemon-details {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.95);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+/* Centrer le Pokédex sur la page */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+  background-attachment: fixed;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
-.pokemon-details.show {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+/* Conteneur principal */
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
+/* Titre principal */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Grille du Pokédex */
+.pokedex {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  max-width: 900px;
+}
+
+/* Style uniforme des cartes Pokémon */
+.pokemon-card {
+  width: 180px; /* Fixe la largeur */
+  height: 250px; /* Fixe la hauteur */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Images des Pokémon */
+.pokemon-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* Effet au survol */
+.pokemon-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
