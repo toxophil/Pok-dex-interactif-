@@ -32,6 +32,23 @@ function PokemonCard({ pokemon }) {
         onError={(e) => (e.target.src = "/images/default.png")}
         style={{ width: "80px", height: "80px", objectFit: "contain" }}
       />
+
+      {/* Ajout des icônes des types */}
+      <div className="pokemon-types">
+        {icons[pokemon.Type1] && (
+          <div
+            className="type-icon"
+            dangerouslySetInnerHTML={{ __html: icons[pokemon.Type1].svg }}
+          />
+        )}
+        {pokemon.Type2 && icons[pokemon.Type2] && (
+          <div
+            className="type-icon"
+            dangerouslySetInnerHTML={{ __html: icons[pokemon.Type2].svg }}
+          />
+        )}
+      </div>
+
       <p>Type: {pokemon.Type1} {pokemon.Type2 && `/ ${pokemon.Type2}`}</p>
 
       {/* Modale des détails du Pokémon */}

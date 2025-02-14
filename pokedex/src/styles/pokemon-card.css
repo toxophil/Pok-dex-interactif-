@@ -29,3 +29,17 @@
 .pokemon-card:hover img {
     transform: rotate(5deg) scale(1.1);
 }
+
+/* 🎨 Icônes des types */
+.pokemon-types {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.type-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+}

@@ -1,9 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f8f8f8;
-  }
-  
+ 
   .pokedex {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -34,3 +29,15 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
   
+
+  .pokemon-details {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.pokemon-details.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+

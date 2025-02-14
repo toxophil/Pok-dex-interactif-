@@ -40,7 +40,10 @@ function Pokedex() {
 
   return (
     <div>
-      <h1>Pokédex</h1>
+      <p>Pars à la découverte des créatures fascinantes qui peuplent le monde Pokémon.
+        Cherche, filtre et explore les différentes espèces pour en apprendre plus sur leurs types et évolutions.
+        Es-tu prêt à tous les attraper ? 🚀🔥
+      </p>
 
       {/* 🔍 Barre de recherche */}
       <input

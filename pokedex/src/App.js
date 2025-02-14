@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div>
-      <h1>Pokédex</h1>
+      <h1>"Bienvenue dans l’Univers Pokémon ! 🌟"</h1>
       <Pokedex pokemonList={pokemonList} />
     </div>
   );

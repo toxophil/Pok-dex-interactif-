@@ -8,6 +8,14 @@
     margin: auto;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #ff9966, #ff5e62); /* Dégradé rouge/orange */
+    background-attachment: fixed;
+    color: white; /* Rendre le texte lisible */
+}
+
 /* 📱 Responsive pour mobiles */
 @media (max-width: 768px) {
     .pokedex {
