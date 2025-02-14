@@ -1,24 +1,55 @@
-import React, { useEffect } from "react";
+import React from "react";
+import Modal from "react-modal";
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    textAlign: "center",
+    borderRadius: "10px",
+    padding: "20px",
+    backgroundColor: "#fff",
+    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+  },
+};
+
+Modal.setAppElement("#root"); // Assure l'accessibilité
 
 function PokemonDetails({ pokemon, onClose }) {
-  // Ajoute une classe au body pour désactiver l'interaction en arrière-plan
-  useEffect(() => {
-    document.body.classList.add("modal-open");
-    return () => {
-      document.body.classList.remove("modal-open");
-    };
-  }, []);
+  if (!pokemon) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="pokemon-details" onClick={(e) => e.stopPropagation()}>
-        <h2>{pokemon.Name}</h2>
-        <img src={`/images/${pokemon.Name.toLowerCase()}.png`} alt={pokemon.Name} />
-        <p>Type: {pokemon.Type1} {pokemon.Type2 && `/ ${pokemon.Type2}`}</p>
-        {pokemon.Evolution && <p>Évolution: {pokemon.Evolution}</p>}
-        <button onClick={onClose}>Fermer</button>
-      </div>
-    </div>
+    <Modal
+      isOpen={!!pokemon}
+      onRequestClose={onClose} // Ferme la modale avec ESC et clic en dehors
+      shouldCloseOnOverlayClick={true}
+      style={customStyles}
+      contentLabel="Détails du Pokémon"
+    >
+      <h2>{pokemon.Name}</h2>
+      <img 
+        src={`/images/${pokemon.Name.toLowerCase()}.png`} 
+        alt={pokemon.Name} 
+        style={{ width: "100px", height: "100px", objectFit: "contain" }} 
+      />
+      <p>Type: {pokemon.Type1} {pokemon.Type2 && `/ ${pokemon.Type2}`}</p>
+      {pokemon.Evolution && <p>Évolution: {pokemon.Evolution}</p>}
+
+      {/* Bouton de fermeture */}
+      <button 
+        className="close-button" 
+        onClick={() => {
+          console.log("🛑 Bouton 'Fermer' cliqué !");
+          onClose();
+        }}
+      >
+        Fermer
+      </button>
+    </Modal>
   );
 }
 
